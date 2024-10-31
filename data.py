@@ -58,3 +58,68 @@ best_selling_albums = [
 ]
 
 # WRITE YOUR CODE AFTER THIS LINE
+
+# Average sales
+
+total_sale = 0
+
+for album in best_selling_albums:
+    total_sale += album["sale"]
+    average_sale  = total_sale / len(best_selling_albums)
+print(average_sale)
+
+# Average age
+
+total_age = 0
+current_year = 2024
+
+for album in best_selling_albums:
+    age = current_year - album["year"]
+    total_age += age
+    average_age = total_age / len(best_selling_albums)
+print(average_age)
+
+# Newest and oldest albums
+
+newest_album = best_selling_albums[0]
+oldest_album = best_selling_albums[0]
+
+for album in best_selling_albums:
+    if album["year"] > newest_album["year"]:
+        newest_album = album
+    if album["year"] < oldest_album["year"]:
+        oldest_album = album
+print(newest_album)
+print(oldest_album)
+
+# The albums of Eagles
+
+eagles_sales = 0
+is_both_soft_rock = True
+
+for album in best_selling_albums:
+    if album["artist"] == "Eagles":
+        eagles_sales += album["sale"]
+        if "soft rock" not in album["genres"]:
+            is_both_soft_rock = False
+albums_of_eagles = {"sales": eagles_sales, "is_both_soft_rock": is_both_soft_rock}
+print(albums_of_eagles)
+
+#Do you like it?
+
+for album in best_selling_albums:
+    if album["artist"] == "Michael Jackson" and album["title"] == "Thriller":
+        album["i_like_it"] = True
+    elif album["artist"] == "Pink Floyd" and album["title"] == "The Dark Side of the Moon":
+        album["i_like_it"] = True
+    else:
+        album["i_like_it"] = False
+
+for album in best_selling_albums:
+    print(f"Artist: {album['artist']}")
+    print(f"title: {album['title']}")
+    print(f"year: {album['year']}")
+    print(f"genres: {', '.join(album['genres'])}")
+    print(f"sale: {album['sale']}")
+    print(f"I like it: {album['i_like_it']}")
+    print("-" * 40)
