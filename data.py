@@ -57,8 +57,6 @@ best_selling_albums = [
     },
 ]
 
-# WRITE YOUR CODE AFTER THIS LINE
-
 # Average sales
 
 total_sale = 0
